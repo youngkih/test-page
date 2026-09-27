@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>가족 여행 에이전트</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <h1>👶✈️ 가족 여행 에이전트</h1>
+    <button id="new-chat" type="button" class="ghost">새 대화</button>
+  </header>
+
+  <main class="layout">
+    <section class="chat" aria-label="대화">
+      <div id="messages" class="messages">
+        <div class="msg assistant intro">
+          <p>안녕하세요! 14개월 아기와 함께하는 가족 여행을 도와드릴게요. 😊</p>
+          <p>가고 싶은 곳, 날짜, 예산 등 생각나는 대로 말씀해 주세요. 정해진 게 없어도 괜찮아요. 제가 여쭤보면서 함께 정해 볼게요.</p>
+          <p class="hint">예: “10월 둘째 주에 3박 4일로 일본 가고 싶어. 예산은 250만 원 정도야.”</p>
+        </div>
+      </div>
+      <div id="status" class="status" hidden></div>
+      <form id="composer" class="composer">
+        <textarea id="input" rows="2" placeholder="메시지를 입력하세요 (Enter 전송, Shift+Enter 줄바꿈)" required></textarea>
+        <button id="send" type="submit">보내기</button>
+      </form>
+    </section>
+
+    <aside class="panel" aria-label="결과">
+      <nav class="tabs" role="tablist">
+        <button role="tab" data-tab="itinerary" aria-selected="true">📝 일정표</button>
+        <button role="tab" data-tab="comparison" aria-selected="false">💰 가격 비교</button>
+        <button role="tab" data-tab="activity" aria-selected="false">🔎 진행 기록</button>
+      </nav>
+      <div id="tab-itinerary" class="tab-body">
+        <p class="empty">아직 일정표가 없어요. 대화를 나누면 에이전트가 여기에 일정표를 만들어 줍니다.</p>
+      </div>
+      <div id="tab-comparison" class="tab-body" hidden>
+        <p class="empty">아직 가격 비교표가 없어요.</p>
+      </div>
+      <div id="tab-activity" class="tab-body" hidden>
+        <ol id="activity-log" class="activity-log"></ol>
+      </div>
+    </aside>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

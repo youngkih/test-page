@@ -1,0 +1,35 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: travel-agent
+  threads:
+    virtual:
+      enabled: true
+  mvc:
+    async:
+      request-timeout: 20m
+
+travel-agent:
+  model: claude-opus-5
+  effort: high
+  max-tokens: 64000
+  max-web-searches: 15
+  max-web-fetches: 20
+  max-agent-iterations: 25
+  family:
+    home-city: 서울
+    home-airport: ICN
+    language: 한국어
+    members:
+      - role: 아빠 (사용자)
+        age-description: 성인
+      - role: 엄마
+        age-description: 성인
+      - role: 아들
+        age-description: 14개월 (걸음마 단계 영아)
+        age-years: 1
+    notes:
+      - 가족 모두 한국인이며 서울에 함께 거주
+      - 모든 결정에서 14개월 아들의 컨디션(낮잠, 수유/이유식, 기저귀, 유모차 이동)을 최우선으로 고려
